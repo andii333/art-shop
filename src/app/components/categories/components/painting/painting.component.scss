@@ -1,0 +1,268 @@
+.paintings {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins";
+  flex-wrap: wrap;
+
+  &_row {
+    flex-direction: row;
+
+  }
+
+  &>* {
+    margin: 0 0 32px 32px;
+  }
+
+  &__grid {
+    width: 268px;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #D1D1D1;
+  }
+
+  &__list {
+    display: flex;
+    border-radius: 12px;
+    border: 1px solid #D1D1D1;
+  }
+
+  &__two-elements {}
+}
+
+.painting {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  &__picture-grid {
+    width: 236px;
+    height: 180px;
+  }
+
+  &__discount {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    color: #6A983C;
+    background-color: #F4F8EC;
+    padding: 0 8px;
+    border-radius: 12px;
+  }
+
+  &__picture-list {
+    width: 268px;
+    height: 280px;
+    margin-right: 32px;
+  }
+
+  &__about {
+    width: 269px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+
+  }
+
+  &__about-detail {
+    display: flex;
+    margin-top: 27px;
+  }
+
+  &__stars {
+  }
+
+  &__subdetail {
+    display: flex;
+    flex-direction: column;
+    margin-right: 32px;
+  }
+
+  &__lable {
+    color: #A9A9A9;
+    margin-bottom: 12px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    &_green {
+      color: #6A983C;
+    }
+  }
+
+  &__send-box {
+    padding: 32px;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 15px;
+    color: #151515;
+    cursor: pointer;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+
+  &__description {
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+    height: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #575757;
+    margin-bottom: 12px;
+  }
+
+  &__price-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 32px;
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 18px;
+    color: #151515;
+    margin-bottom: 4px;
+
+    &_old {
+      text-decoration: line-through;
+      color: #A9A9A9;
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 22px;
+    right: 16px;
+  }
+}
+
+.send-box {
+  margin-left: 64px;
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price {}
+
+  &__free {
+    margin: 14px 0 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #A9A9A9;
+  }
+
+  &__delivery {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #A9A9A9;
+  }
+
+  &__product-detail {
+    padding: 12px 16px;
+    width: 164px;
+    margin: 24px 0 10px 5px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  &__add-wish {
+    padding: 6px 12px;
+    width: 164px;
+    border: none;
+    border-radius: 12px;
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.painting__about .painting__name {
+  font-weight: 600;
+}
+
+.loading {
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1259px) {
+  .paintings {
+
+    &__list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+
+  .send-box {
+    display: flex;
+    margin: 16px auto;
+    padding: 0;
+    align-items: center;
+
+    &__product-detail {
+      margin-top: 0;
+    }
+
+    &__btns {
+      margin-left: 150px;
+    }
+
+  }
+
+  .painting {
+    &__about {
+      width: 200px;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .paintings {
+
+    &__two-elements {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 268px;
+    }
+
+    &__list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .send-box {
+    padding: 0;
+    align-items: center;
+    margin: 16px auto;
+    width: 200px;
+  }
+
+  .painting {
+    &__about {
+      margin: auto;
+      padding-top: 0;
+      width: 200px;
+    }
+  }
+}

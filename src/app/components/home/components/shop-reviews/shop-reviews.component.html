@@ -1,0 +1,12 @@
+<div class="reviews-box">
+  <div class="reviews-box__review review" *ngFor="let review of shopsReviews$ | async">
+    <p class="review__comment">" {{review.comments}} "</p>
+    <span class="review__name">{{review.firstName}}</span>
+    <span class="review__name">{{review.lastName}}</span>
+    <picture>
+      <img class="review__icon" src="assets/user.svg" alt="avatar icon">
+    </picture>
+  </div>
+  <button class="reviews-box__btn reviews-box__btn_left" type="button" (click)="turn('left')">&gt;</button>
+  <button class="reviews-box__btn reviews-box__btn_right" type="button" (click)="turn('right')">&gt;</button>
+</div>

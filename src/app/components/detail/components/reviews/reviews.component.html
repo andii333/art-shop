@@ -1,0 +1,14 @@
+    <div class="review" *ngFor="let review of reviews$ | async; index as i ">
+        <div class="review__container">
+            <div class="review__header">
+                <img class="review__icon" src="assets/user.svg" alt="avatar icon">
+                <div class="review__description">
+                    <span class="review__name">{{review.firstName | firstLetterBig}}</span>
+                    <span class="review__date">{{review.date | date:'mediumDate'}}</span>
+                    <span class="review__raiting">Rating {{review.rating}} / 5</span>
+                </div>
+            </div>
+            <p class="review__comment">{{review.comments}}</p>
+        </div>
+    </div>
+    <app-form [component]="reviews"></app-form>

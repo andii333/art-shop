@@ -1,0 +1,87 @@
+<div class="paintings" data-cy="painting" *ngIf="(paintings$ | async) as paintings; else loading">
+  <div *ngFor="let painting of paintings ">
+    <div class="paintings__grid painting" *ngIf="grid; else list">
+      <picture class="painting__picture-grid">
+        <ng-template *ngTemplateOutlet="picture"></ng-template>
+      </picture>
+      <span class="painting__discount" *ngIf="painting.discount">-{{painting.discount}}%</span>
+      <ng-template *ngTemplateOutlet="name"></ng-template>
+      <ng-template *ngTemplateOutlet="description"></ng-template>
+      <app-stars class="painting__stars" [color]="'black'" [rating]="+painting.rating"></app-stars>
+      <ng-template *ngTemplateOutlet="priceBox"></ng-template>
+      <button class="painting__btn btn" data-cy="sendPaintingToBasket" (click)="addToBasket(painting.id)" type="button"
+        [disabled]="(productsIds$ | async)?.has(painting.id)">
+        {{(productsIds$ | async)?.has(painting.id) ? "Already in basket" :"Buy now" }}
+      </button>
+    </div>
+
+    <ng-template #list>
+      <div class="paintings__list ">
+        <div class="paintings__two-elements painting">
+          <picture class="painting__picture-list">
+            <ng-template *ngTemplateOutlet="picture"></ng-template>
+          </picture>
+          <div class="painting__about">
+            <ng-template *ngTemplateOutlet="name"></ng-template>
+            <ng-template *ngTemplateOutlet="description"></ng-template>
+            <app-stars class="painting__stars" [color]="'black'" [rating]="+painting.rating"></app-stars>
+            <div class="painting__about-detail">
+              <div class="painting__subdetail">
+                <span class="painting__lable">State</span>
+                <span class="painting__lable">Owner</span>
+                <span class="painting__lable">Delivery</span>
+                <span class="painting__lable">Stock</span>
+              </div>
+              <div class="painting__subdetail">
+                <span class="painting__lable painting__lable_green">Good</span>
+                <span class="painting__lable">Shop</span>
+                <span class="painting__lable">Ukraine</span>
+                <span class="painting__lable painting__lable_green">1 pcs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="painting__send-box send-box">
+          <div class="send-box__price">
+            <ng-template *ngTemplateOutlet="priceBox"></ng-template>
+            <p class="send-box__free">Free Shipping</p>
+            <p class="send-box__delivery">Delivery in 14 day</p>
+          </div>
+          <div class="send-box__btns">
+            <button class="send-box__product-detail btn" (click)="goToDetail(painting.id)">Product Detail ></button>
+            <button class="send-box__add-wish">
+              <img src="assets/heart-black.svg" alt="heart icon"> Add to wish list
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </ng-template>
+
+    <ng-template #picture>
+      <img class="painting__img" src="{{painting.image}}" alt="painting photo" routerLink="/detail/{{painting.id}}">
+    </ng-template>
+
+    <ng-template #name>
+      <p class="painting__name" data-cy="openPainting" routerLink="/detail/{{painting.id}}">{{painting.name}}</p>
+    </ng-template>
+
+    <ng-template #description>
+      <p class="painting__description">{{painting.description}}</p>
+    </ng-template>
+
+    <ng-template #priceBox>
+      <div class="painting__price-box">
+        <span class="painting__price">{{painting.price}} USD</span>
+        <span class="painting__price painting__price_old"
+          *ngIf="painting && painting.oldPrice">{{painting.oldPrice}}</span>
+      </div>
+    </ng-template>
+
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">Loading ...</div>
+</ng-template>

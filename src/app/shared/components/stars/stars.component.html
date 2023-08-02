@@ -1,0 +1,10 @@
+  <span class="star" *ngIf="rating === 1"><span
+      class="{{color}}">&starf;</span>&star;&star;&star;&star;</span>
+  <span class="star" *ngIf="rating >=2 && 3 > rating"><span
+      class="{{color}}">&starf;&starf;</span>&star;&star;&star;</span>
+  <span class="star" *ngIf="rating >=3 && 4 > rating"><span
+      class="{{color}}">&starf;&starf;&starf;</span>&star;&star;</span>
+  <span class="star" *ngIf="rating >=4 && 5 > rating"><span
+      class="{{color}}">&starf;&starf;&starf;&starf;</span>&star;</span>
+  <span class="star" *ngIf="rating === 5"><span
+      class="{{color}}">&starf;&starf;&starf;&starf;&starf;</span></span>

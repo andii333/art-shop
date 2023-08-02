@@ -1,0 +1,103 @@
+$textColor: #151515;
+$bacgroundTextColor: #F9F9F9;
+$borderColor: #D1D1D1;
+
+.form {
+    margin: 16px auto;
+
+    &>*:not(:last-child) {
+        margin-bottom: 22px;
+    }
+
+    &__box-name-email {
+        padding: 0 16px;
+    }
+
+    &__part {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 16px;
+
+        &_rating {
+            align-items: center;
+
+            option {
+                text-align: center;
+            }
+        }
+    }
+
+    &__lable {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-size: 16px;
+        color: $textColor;
+        margin-bottom: 12px;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        background: $bacgroundTextColor;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        font-weight: 400;
+        font-size: 14px;
+        color: $textColor;
+        padding: 12px;
+
+        &.ng-invalid.ng-touched {
+            border-color: red
+        }
+    }
+
+    &__invalid {
+        color: red;
+    }
+
+    &__score-select {
+        border: none;
+        outline: none;
+        width: min-content;
+    }
+
+    &__option {}
+
+    &__comments-textarea {
+        box-sizing: border-box;
+        background: $bacgroundTextColor;
+        border: 1px solid $borderColor;
+        font-weight: 400;
+        border-radius: 12px;
+        padding: 8px 16px;
+        font-size: 14px;
+
+        &::placeholder {
+            text-align: center;
+            padding-top: 35px;
+        }
+    }
+
+    &__tip {
+        font-size: 12px;
+        margin-left: 16px;
+    }
+
+    &__submit-btn {
+        margin-left: 16px;
+        font-size: 18px;
+        padding: 12px;
+
+        &:disabled {
+            font-size: 18px;
+        }
+    }
+}
+
+@media only screen and (max-width: 899px) {
+    .review {
+        &__form {
+            width: 100%;
+        }
+    }
+}

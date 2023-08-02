@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+$buttonBorderColor: #46760A;
+$linkColor: #6A983C;
+$backgrounColor: #F9F9F9;
+
+body,
+html {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html {
+    background-color: #E5E5E5;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #151515;
+
+    .tooltip-div {
+        display: none;
+        width: 10rem;
+        font-size: 14px;
+        margin: 0.2rem 1rem;
+        padding: 0.5rem;
+        background-color: $buttonBorderColor;
+        color: white;
+        border: none;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .tooltip-show {
+        display: block;
+    }
+
+    .btn {
+        background: $linkColor;
+        padding: 5px 10px;
+        border: 2px solid $buttonBorderColor;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 15px;
+        color: #FFFFFF;
+
+        &:disabled {
+            font-size: 12px;
+            background-color: $backgrounColor;
+            border-color: $backgrounColor;
+        }
+    }
+
+
+    .link {
+        color: $linkColor;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .link-active {
+        font-weight: 700;
+        background-color: $backgrounColor;
+        border-radius: 7px;
+    }
+}
+
+.mat-mdc-slider.mat-primary {
+    --mdc-slider-handle-color: #FFFFFF;
+    --mdc-slider-focus-handle-color: $linkColor;
+    --mdc-slider-active-track-color: $linkColor;
+    --mat-mdc-slider-focus-ripple-color: rgb(0, 0, 0, 0);
+    --mdc-slider-inactive-track-color: #EBEBEB;
+    --mat-mdc-slider-hover-ripple-color:rgb(0, 0, 0, 0);
+}
+

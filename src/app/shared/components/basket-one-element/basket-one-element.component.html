@@ -1,0 +1,52 @@
+<ng-template #empty>
+    <h2 class="empty">Basket is empty</h2>
+</ng-template>
+
+<div class="basket-element" data-cy="elementInbasket" *ngIf="(products$ | async) as products ;else empty">
+    <div class="basket-element__product product" *ngFor="let product of products">
+        <div class="product__picture">
+            <picture>
+                <img class="product__image" src="{{product.image}}" alt="product picture">
+            </picture>
+            <div class="product__buttons">
+                <div>
+                    <img class="product__buttons-icon" src="assets/heart.svg" alt="heart icon">
+                    <span class="product__btn" type="button">Wishlist</span>
+                </div>
+                <div>
+                    <img class="product__buttons-icon" src="assets/compare.svg" alt="compare icon">
+                    <span class="product__btn" type="button">Compare</span>
+                </div>
+                <div (click)="deleteProductFromBasket(product.id)">
+                    <img class="product__buttons-icon" src="assets/close-icon.svg" alt="close icon">
+                    <span class="product__btn">Remove</span>
+                </div>
+            </div>
+        </div>
+        <div class="product__description-box">
+            <h3 class="product__title">{{product.name}}</h3>
+            <div class="product__author-year-box">
+                <p class="product__author-year ">
+                    <span class="product__author-year_lable">Author:</span>{{product.author}}</p>
+                <p class="product__author-year">
+                    <span class="product__author-year_lable">Year:</span>{{product.yearMade}}</p>
+            </div>
+            <p class="product__rating">{{product.rating | number: '1.0-1'}} &#11088;</p>
+            <div class="product__price-box">
+                <p class="product__price">{{product.price}} USD</p>
+                <p class="product__price product__price_old" *ngIf="product && product.oldPrice">{{product.oldPrice}}
+                </p>
+            </div>
+            <div class="product__number-box">
+                <input class="product__number-input" type="text" value="1" #numberPcs (keyup)="getNumberPcs(numberPcs)">
+                <select class="product__number-select" id="numberPcs"> 
+                    <option class="product__number-option" value="1">Pcs</option>
+                    <option class="product__number-option" value="2">2 Pcs</option>
+                    <option class="product__number-option" value="3">3 Pcs</option>
+                    <option class="product__number-option" value="4">4 Pcs</option>
+                    <option class="product__number-option" value="5">5 Pcs</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

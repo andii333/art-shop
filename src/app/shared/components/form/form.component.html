@@ -1,0 +1,58 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form__box-name-email row">
+        <div class="form__part col-md-3 col-sm-5">
+            <label class="form__lable" for="firstName">First Name *</label>
+            <input class="form__input" type="text" id="firstName" placeholder="First name" formControlName="firstName">
+            <span class="form__invalid" *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched">
+                <small *ngIf="form.controls['firstName'].errors?.['minlength']">Field is too short</small>
+                <small *ngIf="form.controls['firstName'].errors?.['maxlength']">Field is too long</small>
+                <small *ngIf="form.controls['firstName'].errors?.['required']">Field can`t be empty</small>
+            </span>
+        </div>
+        <div class="form__part col-md-3 offset-md-1 col-sm-5 offset-sm-2">
+            <label class="form__lable" for="lastName">Last name *</label>
+            <input class="form__input" type="text" id="lastName" placeholder="Last name" formControlName="lastName">
+            <span class="form__invalid" *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched">
+                <small *ngIf="form.controls['lastName'].errors?.['minlength']">Field is too short</small>
+                <small *ngIf="form.controls['lastName'].errors?.['maxlength']">Field is too long</small>
+                <small *ngIf="form.controls['lastName'].errors?.['required']">Field can`t be empty</small>
+            </span>
+        </div>
+        <div class="form__part col-md-4 offset-md-1 col-sm-8">
+            <label class="form__lable" for="email">Email address *</label>
+            <input class="form__input" type="text" id="email" placeholder="Email address" formControlName="email">
+            <span class="form__invalid" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+                <small *ngIf="form.controls['email'].errors?.['email']">It is`n email address</small>
+                <small *ngIf="form.controls['email'].errors?.['required']">Field can`t be empty</small>
+            </span>
+        </div>
+    </div>
+    <div class="form__part  form__part_rating">
+        <label class="form__lable" for="score">Rating *</label>
+        <select class="form__score-select" name="score" id="rating" size="5" formControlName="rating">
+            <option class="form__option" value="1">&#11088;</option>
+            <option class="form__option" value="2">&#11088;&#11088;</option>
+            <option class="form__option" value="3">&#11088;&#11088;&#11088;</option>
+            <option class="form__option" value="4">&#11088;&#11088;&#11088;&#11088;</option>
+            <option class="form__option" value="5" selected>&#11088;&#11088;&#11088;&#11088;&#11088;</option>
+        </select>
+    </div>
+    <div class="form__part">
+        <label class="form__lable" for="name">Comment *</label>
+        <textarea class="form__comments-textarea" type="text" placeholder="Space for your comments" rows="5"
+            formControlName="comments">
+        </textarea>
+        <span class="form__invalid" *ngIf="form.controls['comments'].invalid && form.controls['comments'].touched">
+            <small *ngIf="form.controls['comments'].errors?.['minlength']">Field is too short</small>
+            <small *ngIf="form.controls['comments'].errors?.['maxlength']">Field is too long</small>
+            <small *ngIf="form.controls['comments'].errors?.['required']">Field can`t be empty</small>
+        </span>
+    </div>
+    <p class="form__tip" *ngIf="form.invalid">fields marked with * must be filled</p>
+    <button class="form__submit-btn btn test_btn"  type="submit" [disabled]="form.invalid">Send a comment
+    </button>
+</form>
+
+<ng-template *ngIf="(loadingProductsReviews$ | async) || (loadingShopsReviews$ | async)">
+    <div class="loading">Loading ...</div>
+</ng-template>

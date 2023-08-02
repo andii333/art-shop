@@ -1,0 +1,45 @@
+<div class="reply">
+  <h3 class="reply__header" *ngIf="typeForm === 'reply'">Leave a reply</h3>
+  <h3 class="reply__header" *ngIf="typeForm === 'comment'">Leave a comment</h3>
+  <form class="reply__form form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form__box-name-email">
+      <div class="form__part">
+        <label class="form__lable" for="name">Name*</label>
+        <input class="form__input" type="text" id="name" placeholder="name" formControlName="name">
+        <span class="form__invalid" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+          <small *ngIf="form.controls['name'].errors?.['minlength']">Field is too short</small>
+          <small *ngIf="form.controls['name'].errors?.['maxlength']">Field is too long</small>
+          <small *ngIf="form.controls['name'].errors?.['required']">Field can`t be empty</small>
+        </span>
+      </div>
+      <div class="form__part">
+        <label class="form__lable" for="email">Email address*</label>
+        <input class="form__input" type="text" id="email" placeholder="Email address" formControlName="email">
+        <span class="form__invalid" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+          <small *ngIf="form.controls['email'].errors?.['email']">It is`n email address</small>
+          <small *ngIf="form.controls['email'].errors?.['required']">Field can`t be empty</small>
+        </span>
+      </div>
+    </div>
+    <div class="form__part">
+      <label class="form__lable" for="name">Comment *</label>
+      <textarea class="form__comments-textarea" type="text" placeholder="Space for your comments" rows="5"
+        formControlName="comment">
+                    </textarea>
+      <span class="form__invalid" *ngIf="form.controls['comment'].invalid && form.controls['comment'].touched">
+        <small *ngIf="form.controls['comment'].errors?.['minlength']">Field is too short</small>
+        <small *ngIf="form.controls['comment'].errors?.['maxlength']">Field is too long</small>
+        <small *ngIf="form.controls['comment'].errors?.['required']">Field can`t be empty</small>
+      </span>
+    </div>
+    <div>
+      <p class="form__tip" *ngIf="form.invalid">fields marked with * must be filled</p>
+      <button class="form__submit-btn btn test_btn" type="submit" [disabled]="form.invalid">Send a comment
+      </button>
+    </div>
+
+    <ng-template #loading>
+      <div class="loading">Loading ...</div>
+    </ng-template>
+  </form>
+</div>

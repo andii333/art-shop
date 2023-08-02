@@ -1,0 +1,134 @@
+$textColor: #151515;
+$bacgroundTextColor: #F9F9F9;
+$borderColor: #D1D1D1;
+
+.reply {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &__header {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__text {
+        font-family: "Open Sans", sans-serif;
+        font-size: 17px;
+        margin: 0;
+    }
+
+    &__form {}
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+
+    &__box-name-email {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__part {
+        display: inline-flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    &__part:first-of-type {
+        margin-right: 32px;
+    }
+
+    &__lable {
+        font-weight: 600;
+        font-size: 12px;
+        color: $textColor;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        background: $bacgroundTextColor;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        font-size: 14px;
+        color: $textColor;
+        padding: 12px;
+
+        &.ng-invalid.ng-touched {
+            border-color: red
+        }
+    }
+
+
+    &__invalid {
+        color: red;
+    }
+
+    &__invalid {}
+
+    &__input-check-box {
+        box-sizing: border-box;
+        background: $bacgroundTextColor;
+        border: 1px solid $borderColor;
+        border-radius: 12px;
+        font-size: 14px;
+        color: $textColor;
+        padding: 12px;
+        width: fit-content;
+        display: flex;
+    }
+
+    &__input-check {
+        margin-right: 8px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &__lable-check {}
+
+    &__comments-textarea {
+        box-sizing: border-box;
+        background: $bacgroundTextColor;
+        border: 1px solid $borderColor;
+        font-weight: 400;
+        border-radius: 12px;
+        padding: 8px 16px;
+        font-size: 14px;
+
+        &::placeholder {
+            text-align: center;
+            padding-top: 35px;
+        }
+    }
+
+    &__tip {
+        font-size: 12px;
+        margin-left: 16px;
+    }
+
+    &__submit-btn {
+        margin-left: 16px;
+        font-size: 18px;
+        padding: 12px;
+        font-weight: 400;
+
+        &:disabled {
+            font-size: 18px;
+            background-color: #D1D1D1;
+        }
+    }
+
+    // @media only screen and (max-width: 899px) {
+    //     .review {
+    //         &__form {
+    //             width: 100%;
+    //         }
+    //     }
+}

@@ -1,0 +1,108 @@
+<div class="path" [@fadeIn]="" *ngIf="(painting$ | async) as painting">
+    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name" routerLink="/category/{{painting.category}}">{{categoryName$ | async}}</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name path__name_last">{{painting.name}}</a>
+</div>
+<div class="detail row" data-cy="paintingWindow" *ngIf="(painting$ | async) as painting">
+
+    <picture class="detail__image-box col-lg-6 col-md-12" [@fadeIn]="">
+        <img class="detail__image" src="{{painting.image}}" alt="{{painting.image}} photo">
+        <span class="detail__discount" *ngIf="painting.discount">-{{painting.discount}}%</span>
+    </picture>
+
+    <div class="detail__info info col-lg-6 col-md-12" [@fadeIn]="">
+        <h3 class="info__name">{{painting.name}}</h3>
+        <app-stars [color]="'yellow'" [rating]="+painting.rating" *ngIf="painting.rating"></app-stars>
+        <span class="info__brackets">
+            (<span class="info__rating-text">{{countOfRewiews$ | async}} customer review</span>)
+        </span>
+
+        <p class="info__text-detail">{{painting.description}}</p>
+
+        <div class="info__indicator indicator row">
+            <span class="indicator__lable col-lg-3 col-6">Id number:</span>
+            <span class="indicator__value col-lg-3 col-6">{{painting.id}}</span>
+            <span class="indicator__lable col-lg-3 col-6">Category:</span>
+            <a class="indicator__value indicator__value_category col-lg-3 col-6">{{category}}</a>
+            <span class="indicator__lable col-lg-3 col-6">Year Made:</span>
+            <span class="indicator__value col-lg-3 col-6">{{painting.yearMade}}</span>
+            <span class="indicator__lable col-lg-3 col-6">Stock:</span>
+            <span class="indicator__value col-lg-3 col-6">{{painting.inStock}}</span>
+            <span class="indicator__lable col-lg-3 col-6">Delivery:</span>
+            <span class="indicator__value col-lg-3 col-6">in {{painting.delivery}} days</span>
+            <span class="indicator__lable col-lg-3 col-6">Delivery area:</span>
+            <span class="indicator__value col-lg-3 col-6">Ukraine</span>
+        </div>
+
+        <div class="info__add-to-basket-box add-to-basket-box row">
+            <div class="add-to-basket-box__price-box col-xl-5 col-lg-12 col-sm-5 col-12">
+                <p class="add-to-basket-box__price">{{painting.price}} USD</p>
+                <p class="add-to-basket-box__price-old" *ngIf="painting && painting.oldPrice">{{painting.oldPrice}}
+                </p>
+            </div>
+            <div class="add-to-basket-box__number-box number-box col-lg-3 offset-xl-0 offset-lg-3 col-5">
+                <input class="number-box__number-input" type="text" value="1" #numberPcs>
+                <select class="number-box__number-select" id="numberPcs">
+                    <option class="number-box__number-option" value="1">Pcs</option>
+                    <option class="number-box__number-option" value="2">2 Pcs</option>
+                    <option class="number-box__number-option" value="3">3 Pcs</option>
+                    <option class="number-box__number-option" value="4">4 Pcs</option>
+                    <option class="number-box__number-option" value="5">5 Pcs</option>
+                </select>
+            </div>
+            <button class="add-to-basket-box__btn btn col-xl-3 col-lg-4 offset-xl-0 offset-lg-1 col-sm-3 col-5" type="button" (click)="addToBasket(painting.id)"
+                [disabled]="(productsIds$ | async)?.has(painting.id)">
+                {{(productsIds$ | async)?.has(painting.id) ? "Already in basket" :"+ Add to cart" }}
+            </button>
+            <div>
+            </div>
+        </div>
+
+        <div class="info__like-compare like-compare">
+            <div class="like-compare__box">
+                <img class="like-compare__icon" src="assets/heart.svg" alt="heart icon">
+                <span class="like-compare__text">Add to my wish list</span>
+            </div>
+            <div class="like-compare__box">
+                <img class="like-compare__icon" src="assets/compare.svg" alt="compare icon">
+                <span class="like-compare__text">Compare</span>
+            </div>
+        </div>
+
+        <div class="info__nav-bar nav-bar">
+            <button class="nav-bar__btn" type="button" [ngClass]="{'nav-bar__active': active === 'description'}"
+                (click)="activate('description')">
+                Description
+            </button>
+            <button class="nav-bar__btn" type="button" [ngClass]="{'nav-bar__active': active === 'reviews'}"
+                (click)="activate('reviews')">
+                Reviews<span class="nav-bar__number">{{countOfRewiews$ | async}}</span>
+            </button>
+            <button class="nav-bar__btn" type="button" [ngClass]="{'nav-bar__active': active === 'questions'}"
+                (click)="activate('questions')">
+                Questions<span class="nav-bar__number">{{countOfQuestions$ | async}}</span>
+            </button>
+        </div>
+
+        <div class="info__tabs tabs">
+            <app-descriptions class="tabs__element" [@appearance]="description"></app-descriptions>
+            <app-reviews class="tabs__element" [@appearance]="reviews"></app-reviews>
+            <app-questions class="tabs__element" [@appearance]="questions"></app-questions>
+        </div>
+    </div>
+
+    <div class="related__products-line">
+        <div class="related__header">
+            <p class="related__header-name">Related products</p>
+            <button class="related__btn" type="button">More products
+                <span class="related__arrow">&gt;</span>
+            </button>
+        </div>
+        <div class="related__top-ranking">
+            <app-top-ranking></app-top-ranking>
+        </div>
+    </div>
+
+</div>

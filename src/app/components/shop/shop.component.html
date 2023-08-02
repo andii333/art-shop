@@ -1,0 +1,12 @@
+<div class="shop">
+    <header class="shop__header" data-cy="header">
+        <app-header></app-header>
+    </header>
+    <main class="shop__main" data-cy="main">
+    <router-outlet></router-outlet>
+    </main>
+    <footer class="shop__footer" data-cy="footer"> 
+        <app-footer></app-footer>
+    </footer>
+    <app-basket-window *ngIf="open$ | async"></app-basket-window>
+</div>

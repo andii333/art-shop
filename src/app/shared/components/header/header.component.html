@@ -1,0 +1,94 @@
+<div class="header">
+    <div *ngIf="bigScreen ;else smallScreen">
+        <div class="header__nav">
+            <div class="nav__info">
+                <a class="nav__text link" data-cy="chatWithUs" routerLink="/homepage" routerLinkActive="link-active">
+                    Chat with us
+                </a>
+                <ng-template *ngTemplateOutlet="contact"></ng-template>
+            </div>
+            <div class="nav__pages">
+                <a class="nav__text link" data-cy="blog" routerLink="/blog/1" routerLinkActive="link-active">
+                    Blog
+                </a>
+                <a class="nav__text link" data-cy="aboutUs" routerLink="/about-us" routerLinkActive="link-active">
+                    About Us
+                </a>
+                <a class="nav__text link" data-cy="careers" routerLink="/careers" routerLinkActive="link-active">
+                    Careers
+                </a>
+            </div>
+        </div>
+        <div class="header__second-row">
+            <button class="header__logo" data-cy="logo" routerLink="/homepage">Art-Shop</button>
+            <ng-template *ngTemplateOutlet="searchForm"></ng-template>
+            <div class="header__authorization-basket">
+                <ng-template *ngTemplateOutlet="basket"></ng-template>
+            </div>
+        </div>
+        <ng-template *ngTemplateOutlet="categories"></ng-template>
+    </div>
+
+    <ng-template #smallScreen>
+        <mat-drawer-container class="header__small-container" autosize>
+            
+            <mat-drawer #drawer class="header__sidenav" mode="side">
+                <ng-template *ngTemplateOutlet="categories"></ng-template>
+            </mat-drawer>
+
+            <div class="header__sidenav-content">
+                <div class="header__row1 nav">
+                    <button class="nav__text" type="button" mat-button (click)="drawer.toggle()">
+                        Categories &gt;
+                    </button>
+                    <ng-template *ngTemplateOutlet="contact"></ng-template>
+                </div>
+                <div class="header__row2">
+                    <button class="header__logo" data-cy="logo" routerLink="/homepage">Art-Shop</button>
+                    <ng-template *ngTemplateOutlet="basket"></ng-template>
+                </div>
+                <ng-template *ngTemplateOutlet="searchForm"></ng-template>
+            </div>
+
+        </mat-drawer-container>
+    </ng-template>
+</div>
+
+<ng-template #contact>
+    <span class="nav__text">+380 685 484 892</span>
+    <span class="nav__text">art-shop@gmail.com</span>
+</ng-template>
+
+<ng-template #searchForm>
+    <form [formGroup]="form" class="header__search search" data-cy="search" *ngIf="(categories$ | async) as categories">
+        <select class="search__select" id="searchInCategory" size="1" formControlName="category">
+            <option class="search__option" value="0">All categories</option>
+            <option class="search__option" *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+            </option>
+        </select>
+        <input class="search__input" type="text" placeholder="Search Products, categories ..." formControlName="text"
+            (keydown)="search()">
+        <img class="search__search-icon" src="assets/search.svg" alt="search-icon">
+    </form>
+</ng-template>
+
+<ng-template #categories>
+    <div class="header__categories-line categories-line" *ngIf="(categories$ | async) as categories">
+        <button class="categories-line__btn" data-cy="categorySelect" id="showProductsInCategory" size="1"
+            *ngFor="let category of categories" routerLink='/category/{{category.id}}' routerLinkActive="active">
+            {{category.name}} <div class="categories-line__mark"></div>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #basket>
+    <img class="header__authorization" src="assets/authorization-icon.svg" alt="">
+    <div class="header__basket-box basket-box" data-cy="goToBasket" [app-toolTip]="namesOfProducts$ | async"
+        (click)="goToBasket()" routerLinkActive="router-link-active">
+        <div class="basket-box__count-box" [@addPainting]="numberOfProducts$ | async">
+            <span class="basket-box__count" data-cy="countBasket">{{numberOfProducts$ | async}}</span>
+        </div>
+        <img class="basket-box__icon" src="assets/basket-icon.svg" alt="basket-icon">
+    </div>
+</ng-template>

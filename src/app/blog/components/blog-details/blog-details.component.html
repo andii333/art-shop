@@ -1,0 +1,35 @@
+<div class="path" [@fadeIn]>
+    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name path__name_last">{{categoryName$ | async}}</a>
+</div>
+
+<div class="post">
+   <app-big-post [post$]="activePost$"></app-big-post> 
+</div>
+
+<div class="detail" *ngIf="activePost$ | async as post">
+
+    <div class="detail__tags tags">
+        <h3 class="tags__header">Tags</h3>
+        <div class="tags__box">
+            <span class="tags__tag" *ngFor="let tag of post.tags" routerLink="/">{{tag}}</span>
+        </div>
+        <button class="tags__back" type="button" routerLink="/blog/1">&larr; Back to blog</button>
+        <button class="tags__reply btn" *ngIf="detail$ | async; else backToReplies" type="button"
+            (click)="openReplyForm()">leave a reply</button>
+        <ng-template #backToReplies>
+            <button class="tags__reply btn" type="button" (click)="closeReplyForm()">Back to replies</button>
+        </ng-template>
+    </div>
+
+    <div class="detail__info info" *ngIf="detail$ | async; else reply">
+        <div class="info__text">
+            {{post.header}}
+        </div>
+        <app-reply class="info__reply"></app-reply>
+    </div>
+    <ng-template #reply>
+        <app-reply-form class="detail__reply" typeForm="reply"></app-reply-form>
+    </ng-template>
+</div>

@@ -1,0 +1,238 @@
+.path {
+    margin: 16px 3.57vw;
+
+    &__name {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #A9A9A9;
+
+        &_last {
+            color: #151515;
+        }
+
+        &_sign {
+            margin: 0 8px;
+        }
+    }
+}
+
+.blog {
+    font-family: "Poppins";
+    color: #151515;
+    margin: 0 3.57vw;
+
+    &__nav {
+        margin-bottom: 40px;
+    }
+
+    &__posts {
+        display: flex;
+        justify-content: center;
+        margin: 48px 0;
+        gap: 32px;
+    }
+
+    &__post {
+        width: calc(46vw - 16px);
+        height: calc(32.2vw - 16px);
+    }
+
+    &__count {
+        background-color: #F4F8EC;
+        color: #6A983C;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 0 8px;
+        border-radius: 12px;
+    }
+
+    &__field {
+        margin-top: 80px;
+    }
+
+    &__footer {}
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+
+    &__name {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    &__icons {}
+
+    &__btn {
+        border: none;
+        background-color: inherit;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 24px;
+        color: #A9A9A9;
+
+        &_black {
+            color: #151515;
+        }
+    }
+}
+
+.field {
+    display: flex;
+    gap: 32px;
+
+    &__filters {}
+
+    &__filter-box {
+        margin-bottom: 48px;
+        width: 268px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__header {
+        margin-bottom: 16px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__filter {
+        color: #6A983C;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &_category {
+            display: flex;
+            justify-content: space-between;
+            color: #A9A9A9;
+        }
+    }
+
+    &__text {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        display: flex;
+        color: #A9A9A9;
+    }
+
+    &__subscribe {}
+
+    &__products {}
+
+    &__product {}
+}
+
+.subscribe {
+    border: 1px solid #D1D1D1;
+    width: 269px;
+    padding: 11px 16px 12px 21px;
+    display: flex;
+    border-radius: 12px;
+
+    &__input {
+        outline: none;
+        border: none;
+        width: 144px;
+    }
+
+    &__btn {
+        font-size: 15px;
+        font-weight: 700;
+        border: none;
+        background-color: inherit;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__pages {}
+
+    &__page {
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #A9A9A9;
+        margin-right: 8px;
+
+        &_number {
+            color: #151515;
+        }
+
+        &_green {
+            color: #6A983C;
+        }
+    }
+
+    &__btn {
+        padding: 12px 16px;
+        align-items: center;
+    }
+
+    &__mark {
+        margin-left: 8px;
+        font-size: 12px;
+        font-size: 700;
+    }
+}
+
+@media only screen and (max-width: 899px) {
+    .blog {
+        &__post {
+            width: 569px;
+            height: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .nav {
+        &__name {
+            display: none;
+        }
+    }
+
+    .field {
+        margin-top: 0;
+        justify-content: center;
+
+    }
+
+    .footer {
+        padding-top: 100px;
+        position: relative;
+
+        &__page {
+            margin-right: 20px;
+        }
+
+        &__btn {
+            position: absolute;
+            left: calc(50vw - 115px);
+            top: 32px;
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .blog {
+        &__post {
+            width: 360px;
+            height: auto;
+        }
+    }
+
+    .field {
+        flex-direction: column-reverse;
+    }
+}

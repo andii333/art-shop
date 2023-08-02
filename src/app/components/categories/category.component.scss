@@ -1,0 +1,346 @@
+.path {
+    margin: 16px 3.57vw;
+
+    &__name {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #A9A9A9;
+
+        &_last {
+            color: #151515;
+        }
+
+        &_sign {
+            margin: 0 8px;
+        }
+    }
+}
+
+.category {
+    font-family: "Poppins";
+    margin: 0 3.57vw;
+
+    &__nav {
+        margin-bottom: 40px;
+    }
+
+    &__filter-row {
+        margin-bottom: 16px;
+        display: flex;
+    }
+
+    &__filter-icon {
+        height: 42px;
+        margin-right: 16px;
+    }
+
+    &__active-filters {
+        margin-bottom: 16px;
+    }
+
+    &__filters-lable {
+        font-size: 12px;
+        font-weight: 600;
+        color: #A9A9A9;
+    }
+
+    &__filter-selected {
+        font-size: 12px;
+        font-weight: 600;
+        color: #6A983C;
+        background-color: #F4F8EC;
+        padding: 0 8px;
+        margin-left: 12px;
+        border-radius: 12px;
+    }
+
+    &__count {
+        background-color: #F4F8EC;
+        color: #6A983C;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 0 8px;
+        border-radius: 12px;
+    }
+
+    &__field {
+        margin-top: 80px;
+    }
+
+    &__footer {}
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+
+    &__name {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    &__icons {}
+
+    &__btn {
+        border: none;
+        background-color: inherit;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 24px;
+        color: #A9A9A9;
+
+        &_black {
+            color: #151515;
+        }
+    }
+
+}
+
+.filter-row {
+    display: flex;
+
+    &__box {
+        border: 1px solid #D1D1D1;
+        background-color: #F9F9F9;
+        padding: 9px 16px;
+        margin-right: 16px;
+        display: flex;
+        align-items: center;
+        border-radius: 12px;
+    }
+
+    &__radio {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+
+    &__text {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+
+        &:first-of-type {
+            margin-right: 16px;
+        }
+    }
+
+    &__checkbox {}
+
+    &__nbm {
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid #D1D1D1;
+        border-radius: 12px;
+        padding: 0 8px;
+    }
+
+    &__select {
+        outline: none;
+        border: none;
+        border-left: 1px solid #D1D1D1;
+        background-color: inherit;
+        padding-left: 24px;
+        margin-left: 24px;
+    }
+}
+
+.field {
+    display: flex;
+
+    &__filters {}
+
+    &__filter-box {
+        margin-bottom: 48px;
+        width: 268px;
+    }
+
+    &__header {
+        margin-bottom: 16px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__filter {
+        &_category {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__checkbox {}
+
+    &__text {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        display: flex;
+
+        &_yellow {
+            color: #FDBC15;
+            font-size: 20px;
+        }
+
+        &_black {
+            color: #D1D1D1;
+            font-size: 20px;
+        }
+    }
+
+    &__price-box {
+        display: flex;
+    }
+
+    &__slider {
+        color: #6A983C;
+    }
+
+    &__price {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__price-text {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    &__price-input {
+        border: 1px solid #D1D1D1;
+        width: 109px;
+        height: 42px;
+        border-radius: 12px;
+        background-color: #F9F9F9;
+        padding-left: 21px;
+        margin-bottom: 32px;
+    }
+
+    &__price-beetwin {
+        color: #A9A9A9;
+        width: 33px;
+        padding: 30px 0 0 14px;
+    }
+
+    &__price-btns {}
+
+    &__price-btn {
+        font-size: 15px;
+        font-weight: 700;
+        padding: 12px 16px;
+
+        &_reset {
+            color: #A9A9A9;
+            background-color: inherit;
+            border: none;
+            margin-left: 34px;
+        }
+    }
+
+    &__products {
+    }
+
+    &__product {}
+}
+
+.checkbox {
+    border: 1.5px solid #D1D1D1;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__pages {}
+
+    &__page {
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #A9A9A9;
+        margin-right: 8px;
+
+        &_number {
+            color: #151515;
+        }
+
+        &_green {
+            color: #6A983C;
+        }
+    }
+
+    &__btn {
+        padding: 12px 16px;
+        align-items: center;
+    }
+
+    &__mark {
+        margin-left: 8px;
+        font-size: 12px;
+        font-size: 700;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1259px) {
+    .field {
+        justify-content: space-around;
+    }
+
+    .category {
+        &__filter-row {
+            flex-direction: column;
+
+            &>:first-of-type {
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .category {
+
+        &__filter-row,
+        &__active-filters {
+            display: none;
+        }
+    }
+
+    .nav {
+        &__name {
+            display: none;
+        }
+    }
+
+    .field {
+        margin-top: 0;
+        justify-content: center;
+
+        &__filters {
+            display: none;
+        }
+    }
+
+    .footer {
+        padding-top: 100px;
+        position: relative;
+
+        &__page {
+            margin-right: 20px;
+        }
+
+        &__btn {
+            position: absolute;
+            left: calc(50vw - 115px);
+            top: 32px;
+        }
+    }
+}

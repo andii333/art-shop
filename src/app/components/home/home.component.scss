@@ -1,0 +1,154 @@
+.home {
+
+    &__section {
+        padding: 5vw 3.57vw;
+    }
+
+    &__bestsellers {
+        width: 83%;
+    }
+
+    &__most-popular {
+        width: 83%;
+    }
+
+    &__reviews-box {
+        padding: 57px 0 45px 0;
+        height: 425.5px;
+        border: 1px solid #F9F9F9;
+        overflow: hidden;
+    }
+
+    &__products-line {
+        padding: 55px 3.57vw;
+    }
+
+    // &__top-ranking {}
+
+    &__blog-box {
+        padding: 65px 3.57vw;
+        height: 596px;
+    }
+
+    // &__blog {}
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 29px;
+
+        &_padding {
+            padding: 0 3.57vw;
+        }
+    }
+
+    &__header-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__btn {
+        font-size: 15px;
+        padding: 12px;
+        width: fit-content;
+        background-color: inherit;
+        border: none;
+        font-weight: 700;
+
+        &_blog {
+            border: 2px solid #92C064;
+            border-radius: 12px;
+        }
+    }
+
+    &__arrow {
+        margin-left: 8px;
+        font-size: 16px;
+        font-weight: 700;
+
+        &_btn {
+            color: #92C064;
+        }
+    }
+}
+
+.section {
+    display: flex;
+
+    &__cards {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+    }
+
+    &__link {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #6A983C;
+        margin: 5px;
+        cursor: pointer;
+
+        &_header {
+            color: #151515;
+            font-family: "Poppins", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+    }
+
+    &__btn {
+        padding: 12.5px 18px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 12px;
+        border: none;
+        width: 190px;
+        margin-top: 42px;
+        background-color: #F5F5F5;
+    }
+
+    &__card {
+        border-radius: 12px;
+        width: 420px;
+        height: 280px;
+        object-fit: cover;
+        margin: 0 0 0 32px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .section {
+        padding: 32px;
+        height: auto;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        &>:last-of-type {
+            margin-bottom: 32px;
+        }
+
+        &__cards {
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__card {
+            width: 360px;
+            margin: 0;
+        }
+
+        &__btn {
+            margin-top: 24px;
+        }
+    }
+}

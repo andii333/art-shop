@@ -1,0 +1,75 @@
+<div class="path" [@fadeIn]>
+    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name path__name_last">{{categoryName$ | async}}</a>
+</div>
+<div class="blog" [@fadeIn]>
+    <div class="blog__nav nav">
+        <span class="nav__name">{{categoryName$ | async}}</span>
+        <div class="nav__icons">
+            <button class="nav__btn" [ngClass]="{'nav__btn_black': grid}" (click)="changeView('grid')">
+                <img src="assets/grid.svg" alt="grid icon"> Grid view
+            </button>
+            <button class="nav__btn" [ngClass]="{'nav__btn_black': !grid}" (click)="changeView('list')">
+                <img src="assets/list-icon.svg" alt="list icon"> List view
+            </button>
+            <span class="nav__btn">
+                <span class="blog__count">{{(paintingsForCategoryId$ | async)?.length }}</span> Products
+            </span>
+        </div>
+    </div>
+
+    <div class="blog__posts">
+        <app-post class="blog__post" [post$]="randomPost$"></app-post>
+        <app-post class="blog__post" *ngIf="scrWidth" [post$]="randomPost1$"></app-post>
+    </div>
+
+    <div class="category__field field">
+        <div class="field__filters">
+            <div class="field__filter-box">
+                <p class="field__header">Archives</p>
+                <a class="field__filter">February 2020</a>
+                <a class="field__filter">January 2020</a>
+                <a class="field__filter">November 2019</a>
+                <a class="field__filter">December 2019</a>
+            </div>
+
+            <div class="field__filter-box">
+                <p class="field__header">Category</p>
+                <a class="field__filter field__filter_category" *ngFor="let category of categories$ | async"
+                    routerLink='/blog/{{category.id}}' routerLinkActive="active">
+                    {{category.name}}
+                </a>
+            </div>
+
+            <div class="field__filter-box">
+                <p class="field__header">Join our list</p>
+                <p class="field__text">
+                    Signup to be the first to hear about exclusive deals, special offers, recepies from our masters and
+                    others.
+                </p>
+                <div class="field__subscribe subscribe">
+                    <input class="subscribe__input" type="text" placeholder="Your email address">
+                    <button class="subscribe__btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="field__products" *ngIf="categorysPosts$ | async">
+            <app-small-post class="field__product" [posts$]="categorysPosts$"></app-small-post>
+        </div>
+    </div>
+    <div class="blog__footer footer">
+        <div class="footer__pages">
+            <span class="footer__page">Page:</span>
+            <a class="footer__page footer__page_green link">1</a>
+            <a class="footer__page footer__page_number link">2</a>
+            <a class="footer__page footer__page_number link">3</a>
+            <a class="footer__page footer__page_number link">4</a>
+        </div>
+        <button class="footer__btn btn">Next page<span class="footer__mark">&gt;</span></button>
+        <div>
+            <span class="blog__count">{{(categorysPosts$ | async)?.length }}</span>
+            articles
+        </div>
+    </div>
+</div>

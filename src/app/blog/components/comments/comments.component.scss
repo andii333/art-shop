@@ -1,0 +1,103 @@
+.comments {
+    width: 100%;
+    border: 1px solid #D1D1D1;
+    border-radius: 12px;
+    margin: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    &__description {
+        display: flex;
+        gap: 16px;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+    }
+
+    &__date {
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #D1D1D1;
+        margin-right: 16px;
+    }
+
+    &__comment {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+.form {}
+
+
+//     &__container {
+
+//     }
+
+//     &__header {
+//         display: flex;
+//         align-items: center;
+//         margin-bottom: 24px;
+//     }
+
+//     &__icon {
+//         width: 40px;
+//         height: 40px;
+//         border-radius: 50%;
+//     }
+
+//     &__description {
+//         margin-left: 16px;
+//     }
+
+//     &__name {
+//         font-size: 16px;
+//         font-weight: 600;
+//         display: block;
+//     }
+
+//     &__date {
+//         font-family: "Open Sans", sans-serif;
+//         font-size: 12px;
+//         font-weight: 400;
+//         color: #D1D1D1;
+//         margin-right: 16px;
+//     }
+
+//     &__raiting {
+//         font-size: 14px;
+//     }
+
+//     &__comment {
+//         font-family: "Open Sans", sans-serif;
+//         font-size: 14px;
+//         font-weight: 400;
+//     }
+
+//     &__btn-box {
+//         display: flex;
+//         justify-content: space-between;
+//     }
+
+//     &__btn {
+//         margin: auto;
+//         width: fit-content;
+//         border: none;
+//         cursor: pointer;
+//         padding: 8px;
+//         border-radius: 12px;
+//         background-color: #f5f5f5;
+//         margin: 0;
+//     }
+
+//     &__comments {
+//         width: 80%;
+//         margin-left: auto;
+//     }
+// }

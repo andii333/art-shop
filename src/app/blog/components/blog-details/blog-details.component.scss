@@ -1,0 +1,96 @@
+$textColor: #151515;
+$bacgroundTextColor: #F9F9F9;
+$borderColor: #D1D1D1;
+
+.path {
+    margin: 16px 3.57vw;
+
+    &__name {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: #A9A9A9;
+
+        &_last {
+            color: #151515;
+        }
+
+        &_sign {
+            margin: 0 8px;
+        }
+    }
+}
+
+.post{
+    padding: 16px;
+    height: 600px;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+
+    &__tags {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__info {
+        width: 40%;
+    }
+
+    &__reply {}
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__tag {
+        background: #F5F5F5;
+        color: #6A983C;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 4px 10px;
+        margin: 8px 16px 8px 0;
+        cursor: pointer;
+    }
+
+    &__box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__header {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    &__back {
+        border: none;
+        background-color: inherit;
+        font-weight: bold;
+        text-align: start;
+    }
+
+    &__reply {
+        font-size: 18px;
+        font-weight: normal;
+        width: fit-content;
+    }
+
+}
+
+.info {
+    padding: 0 32px;
+
+    &__text {
+        margin-bottom: 32px;
+    }
+
+    &__reply {}
+}

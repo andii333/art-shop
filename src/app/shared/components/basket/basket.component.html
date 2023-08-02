@@ -1,0 +1,26 @@
+<div class="basket" data-cy="basketContainer">
+    <header class="basket__header">
+        <h2 class="basket__title">Shopping cart</h2>
+        <div class="basket__close-box">
+            <span class="basket__close-text">Close</span>
+            <img class="basket__close-icon" src="assets/close-icon.svg" alt="close icon" 
+           (click)="closeBasketWindow()">
+        </div>
+    </header>
+
+    <main class="basket__main">
+        <div class="basket__product-box">
+            <app-basket-one-element></app-basket-one-element>
+        </div>
+        <div class="basket__subtotal-box">
+            <h6 class="basket__subtotal">Subtotal</h6>
+            <h3 class="basket__price">{{subtotal$ | async | number: '1.0-2'}} USD</h3>
+        </div>
+    </main>
+
+    <footer class="basket__footer">
+        <span class="basket__footer-text" data-cy="closeBasketWindow" (click)="closeBasketWindow()">Continue shopping</span>
+        <button type="button" class="basket__btn btn" data-cy="goToCheckout" (click)="goToCheckout()">Go to Checkout</button>
+    </footer>
+
+</div>

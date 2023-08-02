@@ -1,0 +1,77 @@
+<div class="home">
+    <div class="home__section home__section_first section">
+        <div class="section__links">
+            <p class="section__link section__link_header">Category menu</p>
+            <a class="section__link" *ngFor="let category of categories$ | async">{{category.name}}</a>
+            <button class="section__btn" type="buuton">More categories
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <div class="section__cards">
+            <div class="section__card">
+                <app-post [post$]="randomPost1$"></app-post>
+            </div>
+            <div class="section__card" *ngIf="scrWidth > 2">
+                <app-post [post$]="randomPost2$"></app-post>
+            </div>
+        </div>
+    </div>
+
+    <div class="home__section section">
+        <div class="section__links">
+            <p class="section__link section__link_header">Best selling products</p>
+            <a class="section__link" *ngFor="let product of bestsellers">{{product}}</a>
+            <button class="section__btn" type="buuton">More products
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <app-bestsellers class="home__bestsellers" data-cy="bestsellers"></app-bestsellers>
+    </div>
+
+    <div class="home__section section">
+        <div class="section__links">
+            <p class="section__link section__link_header">Most popular</p>
+            <a class="section__link" *ngFor="let product of mostPopular$ | async">{{product.name}}</a>
+            <button type="buuton" class="section__btn">More products
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <app-most-popular class="home__most-popular" data-cy="mostPopular"></app-most-popular>
+    </div>
+
+    <div class="home__reviews-box reviews-box">
+        <div class="home__header home__header_padding">
+            <p class="home__header-name">Our customers says</p>
+            <button class="home__btn" type="button">Button
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <div class="reviews-box__review">
+            <app-shop-reviews></app-shop-reviews>
+        </div>
+    </div>
+
+    <div class="home__products-line">
+        <div class="home__header">
+            <p class="home__header-name">Section Headline</p>
+            <button class="home__btn" type="button">Button
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <div class="home__top-ranking">
+            <app-top-ranking data-cy="topRanking"></app-top-ranking>
+        </div>
+    </div>
+
+    <div class="home__blog-box">
+        <div class="home__header">
+            <p class="home__header-name">Read our Blog posts</p>
+            <button class="home__btn" type="button">Go to Blog
+                <span class="home__arrow">&gt;</span>
+            </button>
+        </div>
+        <div class="home__blog">
+            <app-blog-homepage></app-blog-homepage>
+        </div>
+    </div>
+</div>

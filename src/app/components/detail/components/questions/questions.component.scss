@@ -1,0 +1,30 @@
+.reply {
+padding: 1rem;
+    display: flex;
+
+    &__container {
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+        &_header {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+    &__name {}
+
+    &__email {}
+
+    &__raiting {}
+
+    &__comment {}
+
+    &__button {
+        margin: auto;
+    }
+}

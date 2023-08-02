@@ -1,0 +1,157 @@
+<div class="path" [@fadeIn]>
+    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name path__name_last">{{categoryName$ | async}}</a>
+</div>
+<div class="category" [@fadeIn]>
+    <div class="category__nav nav">
+        <span class="nav__name">{{categoryName$ | async}}</span>
+        <div class="nav__icons">
+            <button class="nav__btn" [ngClass]="{'nav__btn_black': grid}" (click)="changeView('grid')">
+                <img src="assets/grid.svg" alt="grid icon"> Grid view
+            </button>
+            <button class="nav__btn" [ngClass]="{'nav__btn_black': !grid}" (click)="changeView('list')">
+                <img src="assets/list-icon.svg" alt="list icon"> List view
+            </button>
+            <span class="nav__btn">
+                <span class="category__count">{{(paintingsForCategoryId$ | async)?.length }}</span> Products
+            </span>
+        </div>
+    </div>
+    <div class="category__filter-row">
+        <div class="filter-row">
+            <div class="filter-row__box">
+               <app-radio-btn class="filter-row__radio" color="#151515"></app-radio-btn>
+               <span class="filter-row__text">Filtre text</span>
+               <app-radio-btn class="filter-row__radio" checked="checked" color="#151515"></app-radio-btn>
+                <span class="filter-row__text">Filtre text</span>
+            </div>
+            <div class="filter-row__box">
+                <app-checkbox class="filter-row__checkbox checkbox"></app-checkbox>
+                <span class="filter-row__text">Filtre</span>
+                <span class="filter-row__nbm">Nbm</span>
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-row__box">
+                <app-checkbox class="filter-row__checkbox checkbox"></app-checkbox>
+                <span class="filter-row__text">Filtre</span>
+                <span class="filter-row__nbm">Nbm</span>
+            </div>
+            <div class="filter-row__box">
+                <app-checkbox class="filter-row__checkbox checkbox" checked="checked"></app-checkbox>
+                <span class="filter-row__text">Filtre</span>
+                <span class="filter-row__nbm">12</span>
+                <select class="filter-row__select">
+                    <option>Select</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="category__active-filters">
+        <span class="category__filters-lable">Applied filtres:</span>
+        <span class="category__filter-selected">Selected Filtre &#x2715;</span>
+        <span class="category__filter-selected">Selected Filtre &#x2715;</span>
+    </div>
+    <div class="category__field field">
+        <div class="field__filters">
+            <div class="field__filter-box">
+                <p class="field__header">Categories</p>
+                <p class="field__filter field__filter_category" *ngFor="let category of categories$ | async">
+                    {{category.name}}
+                    <span class="category__count">{{(dictionaryCategory$ | async)?.[category.id]}}</span>
+                </p>
+            </div>
+            <div class="field__filter-box">
+                <p class="field__header">Brands</p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox"></app-checkbox>
+                    Filtre by brand item
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" checked="checked"></app-checkbox>
+                    Filtre by brand item
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" checked="checked"></app-checkbox>
+                    Filtre by brand item
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox"></app-checkbox>
+                    Filtre by brand item
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" ></app-checkbox>
+                    Filtre by brand item
+                </p>
+                
+            </div>
+            <div class="field__filter-box">
+                <p class="field__header">Rating</p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox"></app-checkbox>
+                    <span class="field__text_yellow">&starf;&starf;&starf;&starf;&starf;</span>
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" ></app-checkbox>
+                    <span class="field__text_yellow">&starf;&starf;&starf;&starf;</span>
+                    <span class="field__text_black">&star;</span>
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" ></app-checkbox>
+                    <span class="field__text_yellow">&starf;&starf;&starf;</span>
+                    <span class="field__text_black">&star;&star;</span>
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" ></app-checkbox>
+                    <span class="field__text_yellow">&starf;&starf;</span>
+                    <span class="field__text_black">&star;&star;&star;</span>
+                </p>
+                <p class="field__text">
+                    <app-checkbox class="filter-row__checkbox checkbox" ></app-checkbox>
+                    <span class="field__text_yellow">&starf;</span>
+                    <span class="field__text_black">&star;&star;&star;&star;</span>
+                </p>
+            </div>
+            <div class="field__filter-box">
+                <p class="field__header">Price</p>
+                <mat-slider class="field__slider" min="0" max="1000">
+                    <input value="400" matSliderStartThumb>
+                    <input value="800" matSliderEndThumb>
+                </mat-slider>
+                <div class="field__price-box">
+                    <div class="field__price">
+                        <span class="field__price-text">Min</span>
+                        <input class="field__price-input" placeholder="0" type="text">
+                    </div>
+                    <span class="field__price-beetwin">-</span>
+                    <div class="field__price">
+                        <span class="field__price-text">Max</span>
+                        <input class="field__price-input" placeholder="000" type="text">
+                    </div>
+                </div>
+                <div class="field__price-btns">
+                    <button class="field__price-btn btn">Apply</button>
+                    <button class="field__price-btn field__price-btn_reset">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="field__products">
+            <app-painting class="field__product" [grid]="grid"></app-painting>
+        </div>
+    </div>
+    <div class="category__footer footer">
+        <div class="footer__pages">
+            <span class="footer__page">Page:</span>
+            <a class="footer__page footer__page_number link">1</a>
+            <a class="footer__page footer__page_number link">2</a>
+            <a class="footer__page footer__page_green link">3</a>
+            <a class="footer__page footer__page_number link">4</a>
+        </div>
+        <button class="footer__btn btn">Show more products<span class="footer__mark">&#709;</span></button>
+        <div>
+            <span class="category__count">{{(paintingsForCategoryId$ | async)?.length }}</span>
+            Products
+        </div>
+    </div>
+</div>

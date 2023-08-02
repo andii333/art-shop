@@ -1,0 +1,20 @@
+<div class="blog">
+  <div class="blog__post" *ngIf="randomPost$ | async">
+    <app-post [post$]="randomPost$"></app-post>
+  </div>
+  <div class="blog__category" *ngIf="scrWidth > 1">
+    <app-small-post [post$]="randomPost$"></app-small-post>
+  </div>
+  <div class="blog__subpost-box" *ngIf="scrWidth > 2">
+    <div class="blog__subpost subpost" *ngFor="let post of (randomPosts$ | async)">
+      <div class="subpost__detail">
+        <p class="subpost__text">{{post.header}}</p>
+        <span class="subpost__author">{{post.author}}</span>
+        <span class="subpost__date">{{post.date | date:'dd.MM.yyyy'}}</span>
+      </div>
+      <picture>
+        <img class="subpost__image" src={{post.image[1]}} alt="image">
+      </picture>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="paintings-list" data-cy="painting" *ngIf="(paintings$ | async) as paintings; else loading">
+  <div class="paintings-list__element painting" *ngFor="let painting of paintings | slice: 0:scrWidth">
+    <picture class="painting__picture">
+      <img class="painting__img" src="{{painting.image}}" alt="painting photo" routerLink="/detail/{{painting.id}}">
+    </picture>
+    <span class="painting__discount" *ngIf="painting.discount">-{{painting.discount}}%</span>
+    <p class="painting__name" data-cy="openPainting" routerLink="/detail/{{painting.id}}">{{painting.name}}</p>
+    <p class="painting__description">{{painting.description}}</p>
+    <div class="painting__price-box">
+      <span class="painting__price">{{painting.price}} USD</span>
+      <span class="painting__price painting__price_old"
+        *ngIf="painting && painting.oldPrice">{{painting.oldPrice}}</span>
+    </div>
+    <button class="painting__btn btn" data-cy="sendPaintingToBasket" (click)="addToBasket(painting.id)" type="button"
+      [disabled]="(productsIds$ | async)?.has(painting.id)">
+      {{(productsIds$ | async)?.has(painting.id) ? "Already in basket" :"Buy now" }}
+    </button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">Loading ...</div>
+</ng-template>

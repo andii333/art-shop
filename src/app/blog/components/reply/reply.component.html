@@ -1,0 +1,20 @@
+<div class="reply" *ngFor="let reply of replies$ | async ">
+  <div class="reply__container">
+    <div class="reply__header">
+      <img class="reply__icon" src="assets/user.svg" alt="avatar icon">
+      <div class="reply__description">
+        <span class="reply__name">{{reply.name | firstLetterBig}}</span>
+        <span class="reply__date">{{reply.date | date:'mediumDate'}}</span>
+      </div>
+    </div>
+    <p class="reply__comment">{{reply.comment}}</p>
+    <div class="reply__btn-box">
+      <button class="reply__btn btn" (click)="comment(reply.id)">comment</button>
+      <button class="reply__btn btn" *ngIf="replayIdsArray.includes(reply.id)"
+       (click)="openComments(reply.id)">&#8597;</button>
+    </div>
+  </div>
+  <app-comments class="reply__comments" typeForm="comment" [existComments]="existComments" [action]="action"
+   *ngIf="reply.id === (replyId$ | async)"></app-comments>
+</div>
+

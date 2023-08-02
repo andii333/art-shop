@@ -1,0 +1,11 @@
+<div *ngIf="action === 'show' && !existComments">
+  <div class="comments" *ngFor="let comment of comments$ | async ">
+    <div class="comments__description">
+      <span class="comments__name">{{comment.name | firstLetterBig}}</span>
+      <span class="comments__date">{{comment.date | date:'mediumDate'}}</span>
+    </div>
+    <p class="comments__comment">{{comment.comment}}</p>
+  </div>
+</div>
+
+<app-reply-form class="form" *ngIf="action === 'comment' && typeForm === 'comment'" typeForm = 'comment'></app-reply-form>

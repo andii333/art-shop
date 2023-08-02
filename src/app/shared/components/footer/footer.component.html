@@ -1,0 +1,58 @@
+<div class="footer">
+    <div class="footer__link-section row" *ngIf="checkoutPage$ | async">
+        <div class="footer__links-box links-box col-lg-3 col-sm-6 col-12">
+            <a routerLink="/" data-cy="getInTouch" class="links-box__header">Get in touch</a>
+            <a routerLink="/about-us" class="links-box__link">About Us</a>
+            <a routerLink="/careers" class="links-box__link">Careers</a>
+            <a routerLink="/" class="links-box__link">Press Releases</a>
+            <a routerLink="/blog" class="links-box__link">Blog</a>
+        </div>
+        <div class="footer__links-box links-box col-lg-3 col-sm-6 col-12">
+            <a routerLink="/" class="links-box__header">Connections</a>
+            <a routerLink="/" class="links-box__link">Facebook</a>
+            <a routerLink="/" class="links-box__link">Twitter</a>
+            <a routerLink="/" class="links-box__link">Instagram</a>
+            <a routerLink="/" class="links-box__link">Youtube</a>
+            <a routerLink="/" class="links-box__link">LinkedIn</a>
+        </div>
+        <div class="footer__links-box links-box col-lg-3 col-sm-6 col-12">
+            <a routerLink="/" class="links-box__header">Earnings</a>
+            <a routerLink="/" class="links-box__link">Become an Affiliate</a>
+            <a routerLink="/" class="links-box__link">Advertise your product</a>
+            <a routerLink="/" class="links-box__link">Sell on Market</a>
+        </div>
+        <div class="footer__links-box links-box col-lg-3 col-sm-6 col-12">
+            <a routerLink="/" class="links-box__header">Account</a>
+            <a routerLink="/" class="links-box__link">Your account</a>
+            <a routerLink="/" class="links-box__link">Returns Centre</a>
+            <a routerLink="/" class="links-box__link">100 % purchase protection</a>
+            <a routerLink="/" class="links-box__link">Chat with us</a>
+            <a routerLink="/" class="links-box__link">Help</a>
+        </div>
+    </div>
+    <div class="footer__product-tags" *ngIf="checkoutPage$ | async">
+        <p class="product-tags__header">Product tags</p>
+        <div class="product-tags__box-tag">
+            <span class="product-tags__tag" data-cy="abstractExpressionism" routerLink="/">Abstract Expressionism</span>
+            <span class="product-tags__tag" routerLink="/">Art Deco</span>
+            <span class="product-tags__tag" routerLink="/">Art Nouveau</span>
+            <span class="product-tags__tag" routerLink="/">Avant-garde</span>
+            <span class="product-tags__tag" routerLink="/">Baroque</span>
+            <span class="product-tags__tag" routerLink="/">Bauhaus</span>
+            <span class="product-tags__tag" routerLink="/">Classicism</span>
+            <span class="product-tags__tag" routerLink="/">CoBrA</span>
+            <span class="product-tags__tag" routerLink="/">Color Field Painting</span>
+            <span class="product-tags__tag" routerLink="/">Conceptual Art</span>
+            <span class="product-tags__tag" routerLink="/">Constructivism</span>
+            <span class="product-tags__tag" routerLink="/">Cubism</span>
+            <span class="product-tags__tag" routerLink="/">Dadaism</span>
+            <span class="product-tags__tag" routerLink="/">Digital Art</span>
+            <span class="product-tags__tag" routerLink="/">Expressionism</span>
+            <span class="product-tags__tag" routerLink="/">Fauvism</span>
+            <span class="product-tags__tag" routerLink="/">Futurism</span>
+            <span class="product-tags__tag" routerLink="/">Harlem Renaissance</span>
+            <span class="product-tags__tag" routerLink="/">Neon Art</span>
+        </div>
+    </div>
+    <h6 class="footer__copyright" data-cy="copyright">Copyright © 2020 Freshnesecom</h6>
+</div>
