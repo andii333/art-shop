@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { fadeIn } from 'src/app/animations/fadeIn';
 import { CategoryState } from 'src/app/NGXS/category.state';
-import { GetCategoryNameById } from 'src/app/NGXS/category.action';
+import { ChangeCategoryId } from 'src/app/NGXS/category.action';
 import { SendCategoryIdToState } from 'src/app/NGXS/painting.action';
 import { Meta, Title } from '@angular/platform-browser';
 import { PaintingsState } from 'src/app/NGXS/painting.state';
@@ -12,7 +12,7 @@ import { Painting } from 'src/app/interfaces/paintings';
 import { Category } from 'src/app/interfaces/category';
 import { BlogState } from '../NGXS/blog.state';
 import { Post } from '../interfaces/post';
-import { CategoryId, GetCategorysPosts, GetPosts } from '../NGXS/blog.action';
+import { CategoryId, GetCategorysPosts } from '../NGXS/blog.action';
 
 @Component({
   selector: 'app-blog',
@@ -50,7 +50,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getScreenSize();
     this.subscription.add(this.route.params.subscribe(params => {
-      this.store.dispatch(new GetCategoryNameById(+params['id']));
+      this.store.dispatch(new ChangeCategoryId(+params['id']));
       this.store.dispatch(new CategoryId(+params['id']));
       this.store.dispatch(new GetCategorysPosts());
       this.store.dispatch(new SendCategoryIdToState(+params['id']));
@@ -73,4 +73,5 @@ export class BlogComponent implements OnInit, OnDestroy {
     view === 'grid' ? this.grid = true : this.grid = false
   }
 
+  
 }

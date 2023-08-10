@@ -1,0 +1,42 @@
+.post {
+    padding: 0 32px;
+    position: relative;
+    height: fit-content;
+
+    &__image {
+        position: absolute;
+        width: 95%;
+        max-height: 300px;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    &__header {
+        position: absolute;
+        left: 100px;
+        top: 32px;
+        color: white;
+        font-size: 1.5rem;
+        line-height: 25px;
+    }
+
+    &__details {
+        position: absolute;
+        top: 180px;
+        left: 48px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        gap: 16px;
+        color: white;
+        font-size: 1rem;
+    }
+
+    &__detail {
+        &_value {
+            font-size: 1.3rem;
+            margin-left: 8px;
+        }
+    }
+
+}

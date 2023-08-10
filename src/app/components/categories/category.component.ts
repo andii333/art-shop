@@ -4,7 +4,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { fadeIn } from 'src/app/animations/fadeIn';
 import { CategoryState } from 'src/app/NGXS/category.state';
-import { GetCategoryNameById } from 'src/app/NGXS/category.action';
+import { ChangeCategoryId } from 'src/app/NGXS/category.action';
 import { SendSearch } from 'src/app/NGXS/painting.action';
 import { Meta, Title } from '@angular/platform-browser';
 import { PaintingsState } from 'src/app/NGXS/painting.state';
@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription.add(this.route.params.subscribe(params =>
-      this.store.dispatch(new GetCategoryNameById(+params['id']))
+      this.store.dispatch(new ChangeCategoryId(+params['id']))
     ))
     this.subscription.add(this.categoryName$.subscribe(category => {
       if (category) {

@@ -67,10 +67,8 @@
     }
 
     &__tags {
-        position: absolute;
         display: flex;
-        left: 24px;
-        top: 24px;
+        gap: 6px;
     }
 
     &__tag {
@@ -86,3 +84,4 @@
         font-weight: 600;
     }
 }
+

@@ -1,5 +1,5 @@
 <div class="path" [@fadeIn]>
-    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <a class="path__name" routerLink="blog">Blog</a>
     <span class="path__name path__name_sign">/</span>
     <a class="path__name path__name_last">{{categoryName$ | async}}</a>
 </div>
@@ -17,11 +17,6 @@
                 <span class="blog__count">{{(paintingsForCategoryId$ | async)?.length }}</span> Products
             </span>
         </div>
-    </div>
-
-    <div class="blog__posts">
-        <app-post class="blog__post" [post$]="randomPost$"></app-post>
-        <app-post class="blog__post" *ngIf="scrWidth" [post$]="randomPost1$"></app-post>
     </div>
 
     <div class="category__field field">

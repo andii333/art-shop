@@ -13,7 +13,7 @@ export class GetCategoriesFail {
     static type = '[CategoriesService] get categories fail';
     constructor(public err: any) { }
 }
-export class GetCategoryNameById {
-    static type = '[PaintingComponent] get categoryName byId';
+export class ChangeCategoryId {
+    static type = '[PaintingComponent] send category id';
     constructor(public categoryId: number) { }
 }

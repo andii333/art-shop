@@ -1,7 +1,7 @@
 import { State, StateContext, Action, Selector, NgxsOnInit } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { Category } from '../interfaces/category';
-import { GetCategories, GetCategoriesFail, GetCategoriesSuccess, GetCategoryNameById } from './category.action';
+import { GetCategories, GetCategoriesFail, GetCategoriesSuccess, ChangeCategoryId as ChangeCategoryId } from './category.action';
 import { CategoriesService } from '../services/categories.service';
 import { IdEqualCategory } from '../interfaces/id-equal-object';
 
@@ -96,8 +96,8 @@ export class CategoryState implements NgxsOnInit {
         alert(`The list of categories could not be loaded from the server and the following error occurred: ${err}`);
     }
 // -------------------------------------------------------------------------------------------------
-    @Action(GetCategoryNameById)
-    getCategoryNameById(ctx: StateContext<CategoryStateModel>, { categoryId }:GetCategoryNameById) {
+    @Action(ChangeCategoryId)
+    categoryId(ctx: StateContext<CategoryStateModel>, { categoryId }:ChangeCategoryId) {
         ctx.patchState({categoryId: categoryId})
     }
 }

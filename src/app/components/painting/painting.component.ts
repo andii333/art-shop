@@ -9,7 +9,7 @@ import { Painting } from '../../interfaces/paintings';
 import { BasketState } from 'src/app/NGXS/basket.state';
 import { CategoryState } from 'src/app/NGXS/category.state';
 import { Category } from '../../interfaces/category';
-import { GetCategoryNameById } from 'src/app/NGXS/category.action';
+import { ChangeCategoryId } from 'src/app/NGXS/category.action';
 
 @Component({
   selector: 'app-painting',
@@ -39,7 +39,7 @@ export class PaintingComponent implements OnInit, OnDestroy {
     this.subscription.add(this.route.params.subscribe(params => {
       this.categiryId = +params['id'];
       this.store.dispatch(new SendCategoryIdToState(this.categiryId));
-      this.store.dispatch(new GetCategoryNameById(this.categiryId));
+      this.store.dispatch(new ChangeCategoryId(this.categiryId));
     }))
     this.createPaintingsList()
    

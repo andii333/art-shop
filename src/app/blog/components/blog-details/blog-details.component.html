@@ -1,7 +1,9 @@
 <div class="path" [@fadeIn]>
-    <a class="path__name" routerLink="/homepage">Homepage</a>
+    <a class="path__name" (click)="goBlog()">Blog</a>
     <span class="path__name path__name_sign">/</span>
-    <a class="path__name path__name_last">{{categoryName$ | async}}</a>
+    <a class="path__name" (click)="goBlog()">{{categoryName$ | async}}</a>
+    <span class="path__name path__name_sign">/</span>
+    <a class="path__name path__name_last">{{(activePost$ | async)?.header}}</a>
 </div>
 
 <div class="post">

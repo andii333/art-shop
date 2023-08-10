@@ -12,7 +12,7 @@ import { GetProductsReviews } from 'src/app/NGXS/reviews.action';
 import { fadeIn } from 'src/app/animations/fadeIn';
 import { appearance } from 'src/app/animations/detail-painting-animations';
 import { Painting } from 'src/app/interfaces/paintings';
-import { GetCategoryNameById } from 'src/app/NGXS/category.action';
+import { ChangeCategoryId } from 'src/app/NGXS/category.action';
 import { SendProductToBasket } from 'src/app/NGXS/basket.action';
 import { BasketState } from 'src/app/NGXS/basket.state';
 
@@ -54,7 +54,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     }));
     this.subscription.add(this.painting$.subscribe(painting => {
       if (painting) {
-        this.store.dispatch(new GetCategoryNameById(painting.category));
+        this.store.dispatch(new ChangeCategoryId(painting.category));
         this.paintingCategory = painting.category;
       }
       this.title.setTitle(`${painting?.name} | Art-Shop`);

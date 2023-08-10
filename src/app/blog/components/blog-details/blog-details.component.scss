@@ -11,9 +11,11 @@ $borderColor: #D1D1D1;
         font-size: 12px;
         font-weight: 400;
         color: #A9A9A9;
+        cursor: pointer;
 
         &_last {
             color: #151515;
+            cursor: auto;
         }
 
         &_sign {
@@ -22,9 +24,9 @@ $borderColor: #D1D1D1;
     }
 }
 
-.post{
+.post {
     padding: 16px;
-    height: 600px;
+    height: 350px;
 }
 
 .detail {
